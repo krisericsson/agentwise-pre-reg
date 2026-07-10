@@ -1,17 +1,23 @@
 -- AgentWise pre-registration / sign-up capture
 -- Run this once in your Supabase project's SQL editor.
 -- This must be an AgentWise-owned Supabase project, not a personal account.
+--
+-- If an older version of this table exists with only test data, drop it first:
+--   drop table if exists public.registrations cascade;
+-- then run this file in full.
 
 create table if not exists public.registrations (
   id uuid primary key default gen_random_uuid(),
   created_at timestamptz not null default now(),
 
-  full_name text not null,
+  first_name text not null,
+  last_name text not null,
   phone text not null,          -- store in E.164 format, e.g. +447911123456
-  email text,
-  firm text,
-  role text,
-  markets text,                 -- free text or comma-separated for now
+  email text not null,
+  firm text not null,
+  role text not null check (role in ('Agent', 'Broker', 'Buying agent', 'Owner / Principal', 'Developer', 'Investor', 'Other')),
+  primary_market text not null,
+  work_type text[],              -- optional, e.g. {'Sales', 'Lettings'}
   consent boolean not null default false,
 
   -- 'member' = arrived via an existing WhatsApp invite (Door One)

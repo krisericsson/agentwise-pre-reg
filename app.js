@@ -35,16 +35,20 @@ export function initRegistrationForm({ formId, source }) {
     e.preventDefault();
     setError("");
 
-    const fullName = form.full_name.value.trim();
+    const firstName = form.first_name.value.trim();
+    const lastName = form.last_name.value.trim();
     const phoneRaw = form.phone.value.trim();
     const email = form.email.value.trim();
     const firm = form.firm.value.trim();
-    const role = form.role.value.trim();
-    const markets = form.markets.value.trim();
+    const role = form.role.value;
+    const primaryMarket = form.primary_market.value.trim();
+    const workTypes = [...form.querySelectorAll('input[name="work_type"]:checked')].map(
+      (cb) => cb.value
+    );
     const consent = form.consent.checked;
 
-    if (!fullName || !phoneRaw || !consent) {
-      setError("Name, mobile number, and consent are required.");
+    if (!firstName || !lastName || !phoneRaw || !email || !firm || !role || !primaryMarket || !workTypes.length || !consent) {
+      setError("Please complete all required fields.");
       return;
     }
 
@@ -60,12 +64,14 @@ export function initRegistrationForm({ formId, source }) {
     const status = source === "applicant" ? "pending" : "n/a";
 
     const { error } = await supabase.from("registrations").insert({
-      full_name: fullName,
+      first_name: firstName,
+      last_name: lastName,
       phone,
-      email: email || null,
-      firm: firm || null,
-      role: role || null,
-      markets: markets || null,
+      email,
+      firm,
+      role,
+      primary_market: primaryMarket,
+      work_type: workTypes.length ? workTypes : null,
       consent,
       source,
       status,
@@ -73,7 +79,7 @@ export function initRegistrationForm({ formId, source }) {
 
     if (error) {
       submitBtn.disabled = false;
-      submitBtn.textContent = source === "applicant" ? "Apply" : "Join AgentWise";
+      submitBtn.textContent = source === "applicant" ? "Apply" : "Register my place";
       if (error.code === "23505") {
         setError("That mobile number is already registered.");
       } else {

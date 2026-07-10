@@ -4,78 +4,152 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Apply to AgentWise</title>
+<meta name="description" content="Apply to join AgentWise, the private network for verified property professionals.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="wrap">
-  <div class="mark">
-    <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M14 2L24 20L18 32L8 14L14 2Z" stroke="#6B2FB5" stroke-width="1.6"/>
-      <path d="M17 20H27L32 30H12L17 20Z" stroke="#6B2FB5" stroke-width="1.6"/>
-    </svg>
-    <span class="word">Agent<em>Wise</em></span>
-  </div>
 
+<header class="masthead">
+  <img src="logo.png" alt="AgentWise">
+  <span class="invite">Request access</span>
+</header>
+
+<section class="hero">
+  <p class="kicker">Closed, vetted network</p>
+  <h1>Apply to <span class="pp">join.</span></h1>
+  <p class="standfirst">AgentWise is a closed network for real estate professionals. Tell us a bit about you and our team will review your request.</p>
+  <div class="rule-orn"></div>
+</section>
+
+<section class="steps">
+  <div class="step">
+    <span class="no">01</span>
+    <div class="hr"></div>
+    <h3>Submit your details</h3>
+    <p>A couple of minutes now. Tell us who you are and where you work.</p>
+  </div>
+  <div class="step">
+    <span class="no">02</span>
+    <div class="hr"></div>
+    <h3>We review within 24 hours</h3>
+    <p>Our team checks every application by hand before anyone joins the network.</p>
+  </div>
+  <div class="step">
+    <span class="no">03</span>
+    <div class="hr"></div>
+    <h3>Walk in on approval</h3>
+    <p>Once accepted, open the app and sign in with your mobile number. No re-entry.</p>
+  </div>
+</section>
+
+<section class="enrol">
   <div class="card">
-    <div id="form-state" class="form-state">
-      <div class="eyebrow">Request access</div>
-      <h1>Apply to <em>join.</em></h1>
-      <p class="lede">AgentWise is a closed, vetted network for real estate professionals. Tell us a bit about you, our team reviews every request.</p>
-
-      <form id="reg-form" novalidate>
-        <div class="field">
-          <label for="full_name">Full name</label>
-          <input type="text" id="full_name" name="full_name" autocomplete="name" required>
-        </div>
-
-        <div class="field">
-          <label for="phone">Mobile number</label>
-          <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="07911 123456" required>
-          <span class="hint">You'll sign into the app with this number once approved.</span>
-        </div>
-
-        <div class="field">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" autocomplete="email">
-        </div>
-
-        <div class="field">
-          <label for="firm">Firm</label>
-          <input type="text" id="firm" name="firm" autocomplete="organization" required>
-        </div>
-
-        <div class="field">
-          <label for="role">Role</label>
-          <input type="text" id="role" name="role" placeholder="e.g. Sales, Lettings, Commercial">
-        </div>
-
-        <div class="field">
-          <label for="markets">Markets / areas you cover</label>
-          <input type="text" id="markets" name="markets" placeholder="e.g. Prime Central London, SW postcodes">
-        </div>
-
-        <div class="consent">
-          <input type="checkbox" id="consent" name="consent" required>
-          <label for="consent">I agree to AgentWise storing my details to review my application. See the <a href="#" target="_blank">privacy notice</a>.</label>
-        </div>
-
-        <div id="error-msg" class="error-msg"></div>
-
-        <button type="submit">Apply</button>
-      </form>
-
-      <div class="switch-link">Already invited? <a href="index.html">Join here</a></div>
+    <div class="crown">
+      <span class="t">Apply for access</span>
+      <span class="n">New applicant</span>
     </div>
+    <div class="body">
+      <div id="form-state" class="form-state">
+        <form id="reg-form" novalidate>
+          <div class="row">
+            <div class="field">
+              <label for="first_name">First name <span class="req">*</span></label>
+              <input type="text" id="first_name" name="first_name" autocomplete="given-name" placeholder="Jane" required>
+            </div>
+            <div class="field">
+              <label for="last_name">Last name <span class="req">*</span></label>
+              <input type="text" id="last_name" name="last_name" autocomplete="family-name" placeholder="Smith" required>
+            </div>
+          </div>
 
-    <div id="success-state" class="success">
-      <div class="badge">&#10003;</div>
-      <h2>Request received.</h2>
-      <p>A member of the team will review your application within 24 hours. We'll be in touch, no need to do anything else for now.</p>
+          <div class="row">
+            <div class="field">
+              <label for="phone">Mobile <span class="req">*</span></label>
+              <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="+44 7700 900000" required>
+            </div>
+            <div class="field">
+              <label for="email">Email <span class="req">*</span></label>
+              <input type="email" id="email" name="email" autocomplete="email" placeholder="jane@firm.com" required>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="firm">Firm or brokerage <span class="req">*</span></label>
+            <input type="text" id="firm" name="firm" autocomplete="organization" placeholder="Knight Frank" required>
+          </div>
+
+          <div class="row">
+            <div class="field">
+              <label for="role">Role <span class="req">*</span></label>
+              <select id="role" name="role" required>
+                <option value="" disabled selected>Select...</option>
+                <option value="Agent">Agent</option>
+                <option value="Broker">Broker</option>
+                <option value="Buying agent">Buying agent</option>
+                <option value="Owner / Principal">Owner / Principal</option>
+                <option value="Developer">Developer</option>
+                <option value="Investor">Investor</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="primary_market">Primary market <span class="req">*</span></label>
+              <input type="text" id="primary_market" name="primary_market" placeholder="London, UK" required>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="field-label">You work in <span class="req">*</span></label>
+            <div class="chips">
+              <label class="chip">
+                <input type="checkbox" name="work_type" value="Sales">
+                <span>Sales</span>
+              </label>
+              <label class="chip">
+                <input type="checkbox" name="work_type" value="Lettings">
+                <span>Lettings</span>
+              </label>
+              <label class="chip">
+                <input type="checkbox" name="work_type" value="Commercial">
+                <span>Commercial</span>
+              </label>
+              <label class="chip">
+                <input type="checkbox" name="work_type" value="New homes">
+                <span>New homes</span>
+              </label>
+            </div>
+          </div>
+
+          <label class="consent">
+            <input type="checkbox" id="consent" name="consent" required>
+            <span>I agree to AgentWise storing my details to review my application. See the <a href="#" target="_blank" rel="noopener">privacy notice</a>.</span>
+          </label>
+
+          <button type="submit">Apply</button>
+          <div id="error-msg" class="error-msg"></div>
+        </form>
+
+        <div class="switch-link">Already invited? <a href="index.html">Join here</a></div>
+      </div>
+
+      <div id="success-state" class="success">
+        <div class="badge">&#10003;</div>
+        <h2>Request received.</h2>
+        <p>A member of the team will review your application within 24 hours. We'll be in touch, no need to do anything else for now.</p>
+      </div>
     </div>
   </div>
-</div>
+</section>
 
-<footer>AgentWise &middot; your details are stored securely and used only to review your application.</footer>
+<p class="reassure">AgentWise is a vetted network. Your details are used only to review your application and contact you about membership. We never share or sell member data.</p>
+
+<footer class="colophon">
+  <span>&copy; AgentWise. The private network for property professionals.</span>
+  <span>Questions? emily@agentwise.io</span>
+</footer>
 
 <script type="module">
   import { initRegistrationForm } from "./app.js";
