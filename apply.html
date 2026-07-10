@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apply to AgentWise</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+  <div class="mark">
+    <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M14 2L24 20L18 32L8 14L14 2Z" stroke="#6B2FB5" stroke-width="1.6"/>
+      <path d="M17 20H27L32 30H12L17 20Z" stroke="#6B2FB5" stroke-width="1.6"/>
+    </svg>
+    <span class="word">Agent<em>Wise</em></span>
+  </div>
+
+  <div class="card">
+    <div id="form-state" class="form-state">
+      <div class="eyebrow">Request access</div>
+      <h1>Apply to <em>join.</em></h1>
+      <p class="lede">AgentWise is a closed, vetted network for real estate professionals. Tell us a bit about you, our team reviews every request.</p>
+
+      <form id="reg-form" novalidate>
+        <div class="field">
+          <label for="full_name">Full name</label>
+          <input type="text" id="full_name" name="full_name" autocomplete="name" required>
+        </div>
+
+        <div class="field">
+          <label for="phone">Mobile number</label>
+          <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="07911 123456" required>
+          <span class="hint">You'll sign into the app with this number once approved.</span>
+        </div>
+
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" autocomplete="email">
+        </div>
+
+        <div class="field">
+          <label for="firm">Firm</label>
+          <input type="text" id="firm" name="firm" autocomplete="organization" required>
+        </div>
+
+        <div class="field">
+          <label for="role">Role</label>
+          <input type="text" id="role" name="role" placeholder="e.g. Sales, Lettings, Commercial">
+        </div>
+
+        <div class="field">
+          <label for="markets">Markets / areas you cover</label>
+          <input type="text" id="markets" name="markets" placeholder="e.g. Prime Central London, SW postcodes">
+        </div>
+
+        <div class="consent">
+          <input type="checkbox" id="consent" name="consent" required>
+          <label for="consent">I agree to AgentWise storing my details to review my application. See the <a href="#" target="_blank">privacy notice</a>.</label>
+        </div>
+
+        <div id="error-msg" class="error-msg"></div>
+
+        <button type="submit">Apply</button>
+      </form>
+
+      <div class="switch-link">Already invited? <a href="index.html">Join here</a></div>
+    </div>
+
+    <div id="success-state" class="success">
+      <div class="badge">&#10003;</div>
+      <h2>Request received.</h2>
+      <p>A member of the team will review your application within 24 hours. We'll be in touch, no need to do anything else for now.</p>
+    </div>
+  </div>
+</div>
+
+<footer>AgentWise &middot; your details are stored securely and used only to review your application.</footer>
+
+<script type="module">
+  import { initRegistrationForm } from "./app.js";
+  initRegistrationForm({ formId: "reg-form", source: "applicant" });
+</script>
+</body>
+</html>
